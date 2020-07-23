@@ -3,7 +3,7 @@
 namespace App\Model;
 
 	class Produto{
-		private $id, $nome, $descricao;
+		private $id, $nome, $sobrenome, $email, $idade;
 
 		public function getNome(){
 			return $this->nome;
@@ -11,14 +11,30 @@ namespace App\Model;
 		public function setNome($n){
 			$this->nome = $n;
 		}
-		public function getDescr(){
-			return $this->descricao;
+
+		public function getSobrenome(){
+			return $this->sobrenome;
 		}
-		public function setDescr($descr){
-			$this->descricao = $descr;
+		public function setSobrenome($sn){
+			$this->sobrenome = $sn;
 		}
-		public function setId($id){
-			$this->id = $id;
+
+		public function getEmail(){
+			return $this->email;
+		}
+		public function setEmail($e){
+			$this->email = $e;
+		}
+
+		public function getIdade(){
+			return $this->idade;
+		}
+		public function setIdade($i){
+			$this->idade = $i;
+		}
+
+		public function setId($i){
+			$this->id = $i;
 		}
 		public function getId(){
 			return $this->id;
