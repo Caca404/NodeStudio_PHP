@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-	class Produto{
+	class Cliente{
 		private $id, $nome, $sobrenome, $email, $idade;
 
 		public function getNome(){

@@ -1,14 +1,14 @@
 <?php
   	include_once 'includes/header.php';
   	require_once 'vendor/autoload.php';
-	$prodDao = new \App\Model\ProdutoDao();
-	$prod = new \App\Model\Produto();
+	$ncliente = new \App\Model\NCliente();
+	$clien = new \App\Model\Cliente();
 ?>
 
 <div class="row">
 		<div class="col s12 m6 push-m3">
 			<h3 class="light">Novo Cliente</h3>
-			<form action="<?php $prodDao->create(); ?>" method="POST">
+			<form action="<?php $ncliente->create(); ?>" method="POST">
 				<div class="input-field col s12">
 					<input type="text" name="nome" id="nome">
 					<label for="nome">Nome</label>

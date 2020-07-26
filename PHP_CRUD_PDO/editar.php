@@ -3,14 +3,14 @@
   	require_once 'vendor/autoload.php';
 	if(isset($_GET['id'])){
 		$id = $_GET['id'];
-		$prodDao = new \App\Model\ProdutoDao();
-		$dados = $prodDao->readi($id);
+		$ncliente = new \App\Model\NCliente();
+		$dados = $ncliente->readi($id);
 	}
 ?>
 <div class="row">
 		<div class="col s12 m6 push-m3">
 			<h3 class="light">Editar Cliente</h3>
-			<form action="<?php $prodDao->update(); ?>" method="POST">
+			<form action="<?php $ncliente->update(); ?>" method="POST">
 				<input type="hidden" name="id" value="<?php echo $dados['0']['id']; ?>">
 				<div class="input-field col s12">
 					<input type="text" name="nome" id="nome" value="<?php echo $dados['0']['nome']; ?>">

@@ -18,8 +18,8 @@
 				</thead>
 				<tbody>
 					<?php
-						$prodDao = new \App\Model\ProdutoDao();
-						$dados = $prodDao->read();
+						$ncliente = new \App\Model\NCliente();
+						$dados = $ncliente->read();
 						if(count($dados) > 0):
 							foreach ($dados as $registro):
 					?>
@@ -38,7 +38,7 @@
 						    	<p>Are you sure about that?</p>
 						    </div>
 						    <div class="modal-footer">
-						      	<form action="<?php $prodDao->deletar()?>" method="POST">
+						      	<form action="<?php $ncliente->deletar()?>" method="POST">
 							     	<input type="hidden" name="id" value="<?php echo $registro['id'];?>">
 							     	<button type="submit" name="btn-deletar" class="btn red">Sim, quero deletar</button>
 							     	<a href="#!" class="modal-close waves-effect waves-green btn-flat">Cancelar</a>
@@ -72,19 +72,3 @@
 	require_once 'includes/footer.php';
 
 ?>
-
-
-
-
-	<!-- $prod = new \App\Model\Produto();
-	$prod->setId(1);
-	$prod->setNome('Cadeira');
-	$prod->setDescr('Gamer');
-
-	$prodDao = new \App\Model\ProdutoDao();
-	$prodDao->delete(2);
-	$prodDao->read();
-
-	foreach ($prodDao->read() as $pr) {
-		echo $pr['nome']."<br>".$pr['descricao'].'<hr>';
-	} -->
