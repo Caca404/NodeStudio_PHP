@@ -16,14 +16,14 @@
 				if(!filter_var($email, FILTER_VALIDATE_EMAIL)):
 					$erros[] = "Email Invalido";
 				endif;
-		$nome = mysqli_escape_string($connect, $nome);
-		$sobrenome = mysqli_escape_string($connect, $sobrenome);
-		$email = mysqli_escape_string($connect, $email);
-		$idade = mysqli_escape_string($connect, $idade);
 		
-
-		$sql = "INSERT INTO clientes(nome, sobrenome, email, idade) VALUES ('$nome','$sobrenome','$email','$idade')";
 		if(count($erros) == 0){
+			$nome = mysqli_escape_string($connect, $nome);
+			$sobrenome = mysqli_escape_string($connect, $sobrenome);
+			$email = mysqli_escape_string($connect, $email);
+			$idade = mysqli_escape_string($connect, $idade);
+
+			$sql = "INSERT INTO clientes(nome, sobrenome, email, idade) VALUES ('$nome','$sobrenome','$email','$idade')";
 			if(mysqli_query($connect, $sql)){
 				$_SESSION['mensagem'] = "Cadastrado com sucesso";
 				$_SESSION['idade'] = $idade;

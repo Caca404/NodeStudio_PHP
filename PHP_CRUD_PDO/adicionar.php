@@ -1,8 +1,20 @@
 <?php
+	session_start();
   	include_once 'includes/header.php';
   	require_once 'vendor/autoload.php';
 	$ncliente = new \App\Model\NCliente();
 	$clien = new \App\Model\Cliente();
+  	if(isset($_SESSION['mensagem'])):
+?>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				M.toast({html: '<?php echo $_SESSION['mensagem']; ?>'})
+			};
+		</script>
+<?php
+	endif;
+	session_unset();
 ?>
 
 <div class="row">

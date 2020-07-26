@@ -1,4 +1,5 @@
 <?php
+	session_start();
   	include_once 'includes/header.php';
   	require_once 'vendor/autoload.php';
 	if(isset($_GET['id'])){
@@ -6,7 +7,18 @@
 		$ncliente = new \App\Model\NCliente();
 		$dados = $ncliente->readi($id);
 	}
+	if(isset($_SESSION['mensagem'])):
 ?>
+		<script type="text/javascript">
+			window.onload = function(){
+				M.toast({html: '<?php echo $_SESSION['mensagem']; ?>'})
+			};
+		</script>
+<?php
+	endif;
+	session_unset();
+?>
+
 <div class="row">
 		<div class="col s12 m6 push-m3">
 			<h3 class="light">Editar Cliente</h3>

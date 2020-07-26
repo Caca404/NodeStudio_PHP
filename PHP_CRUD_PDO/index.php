@@ -1,8 +1,17 @@
 <?php
-
+	session_start();
 	require_once 'vendor/autoload.php';
 	require_once 'includes/header.php';
-
+	if(isset($_SESSION['mensagem'])):
+?>
+		<script type="text/javascript">
+			window.onload = function(){
+				M.toast({html: '<?php echo $_SESSION['mensagem']; ?>'})
+			};
+		</script>
+<?php
+	endif;
+	session_unset();
 ?>
 <div class="row">
 		<div class="col s12 m8 push-m2">
