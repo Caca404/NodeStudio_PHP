@@ -65,19 +65,16 @@
 								<td>-</td>
 								<td>-</td>
 							</tr>
-					<?php		
+					<?php	
 						endif;
 					?>
 				</tbody>
 			</table>
 			<br>
 			<a href="adicionar.php" class="btn">Adicionar cliente</a>
+			<a href="enviar.php" class="btn" name="btn-enviar">Enviar Email</a>
 		</div>
 </div>
-
-
 <?php
-	
 	require_once 'includes/footer.php';
-
 ?>

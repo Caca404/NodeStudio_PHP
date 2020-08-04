@@ -1,5 +1,7 @@
 <?php
 	
+	namespace App\Model;
+
 	use PHPMailer\PHPMailer\PHPMailer;
 	use stdClass;
 
@@ -12,18 +14,18 @@
 			$this->mail = new PHPMailer(true);
 			$this->data = new stdClass();
 
-			$this->mail->isSMTP();
-			$this->mail->isHTML();
-			$this->mail->setLanguage("br");
+			$this->mail->IsSMTP();
+			$this->mail->IsHTML();
+			$this->mail->SetLanguage("br");
 
 			$this->mail->SMTPAuth = true;
-			$this->mail->SMTPSecure = "tls";
+			$this->mail->SMTPSecure = "ssl";
 			$this->mail->Charset = "utf-8";
 
-			$this->mail->Host = MAIL["host"];
-			$this->mail->Port = MAIL["port"];
-			$this->mail->Username = MAIL["user"];
-			$this->mail->Password = MAIL["password"];
+			$this->mail->Host = "smtp.gmail.com";
+			$this->mail->Port = "465";
+			$this->mail->Username = "php.teste10kk@gmail.com";
+			$this->mail->Password = "Php123TI";
 		}
 
 		public function add(string $subject, string $body, string $recipient_name, string $recipient_email) : Email
@@ -36,25 +38,25 @@
 		}
 
 		public function attach(string $filePath, string $fileName) : Email{
-			$this->data->attach($filePath) = $fileName;
+			$this->data->attach[$filePath] = $fileName;
 			return $this;
 		}
 
-		public function send(string $from_name = MAIL["from_name"], string $from_email = MAIL["from_email"])
+		public function send(string $from_name, string $from_email) : bool
 		{
 			try{
 				$this->mail->Subject = $this->data->subject;
-				$this->mail->msgHTML($this->data->body);
-				$this->mail->addAddress($this->data->recipient_email, $this->data->recipient_name);
-				$this->mail->setFrom($from_email, $from_name);
+				$this->mail->MsgHTML($this->data->body);
+				$this->mail->AddAddress($this->data->recipient_email, $this->data->recipient_name);
+				$this->mail->SetFrom($from_email, $from_name);
 
-				if(!empty($this->data->attach)){
-					foreach ($this->data->attach as $path => $name) {
-						$this->mail->addAttachment($path,$name);
-					}
-				}
+				// if(!empty($this->data->attach)){
+				// 	foreach ($this->data->attach as $path => $name) {
+				// 		$this->mail->addAttachment($path,$name);
+				// 	}
+				// }
 
-				$this->mail->send();
+				return $this->mail->Send();
 			}
 			catch(Exception $e){
 				$this->error = $e;
