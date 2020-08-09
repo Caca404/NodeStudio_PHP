@@ -37,8 +37,8 @@
 					<label for="email">Email</label>
 				</div>
 				<div class="input-field col s12">
-					<input type="text" name="idade" id="idade" value="<?php echo $dados['0']['idade']; ?>">
-					<label for="idade">Idade</label>
+					<input type="date" name="nascimento" id="nascimento" value="<?php echo $dados['0']['nascimento']; ?>">
+					<label for="nascimento">Nascimento</label>
 				</div>
 
 				<button type="submit" name="btn-editar" class="btn">Atualizar</button>

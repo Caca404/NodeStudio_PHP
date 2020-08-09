@@ -22,7 +22,7 @@
 						<th>Nome:</th>
 						<th>Sobrenome:</th>
 						<th>Email:</th>
-						<th>Idade:</th>
+						<th>Nascimento:</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -36,7 +36,7 @@
 						<td><?php echo $registro['nome']; ?></td>
 						<td><?php echo $registro['sobrenome']; ?></td>
 						<td><?php echo $registro['email']; ?></td>
-						<td><?php echo $registro['idade']; ?></td>
+						<td><?php echo $registro['nascimento']; ?></td>
 						<td><a href="editar.php?id=<?php echo $registro['id']; ?>" class="btn-floating orange"><i class="material-icons">edit</i></a></td>
 
 						<td><a href="#modal<?php echo $registro['id'];?>" class="btn-floating red modal-trigger"><i class="material-icons">delete</i></a></td>

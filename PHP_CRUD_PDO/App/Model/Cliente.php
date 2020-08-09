@@ -3,7 +3,7 @@
 namespace App\Model;
 
 	class Cliente{
-		private $id, $nome, $sobrenome, $email, $idade;
+		private $id, $nome, $sobrenome, $email, $nascimento;
 
 		public function getNome(){
 			return $this->nome;
@@ -26,11 +26,11 @@ namespace App\Model;
 			$this->email = $e;
 		}
 
-		public function getIdade(){
-			return $this->idade;
+		public function getNascimento(){
+			return $this->nascimento;
 		}
-		public function setIdade($i){
-			$this->idade = $i;
+		public function setNascimento($i){
+			$this->nascimento = $i;
 		}
 
 		public function setId($i){

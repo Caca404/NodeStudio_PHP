@@ -34,8 +34,8 @@
 					<label for="email">Email</label>
 				</div>
 				<div class="input-field col s12">
-					<input type="text" name="idade" id="idade">
-					<label for="idade">Idade</label>
+					<input type="date" name="nascimento" id="nascimento">
+					<label for="nascimento">Nascimento</label>
 				</div>
 
 				<button type="submit" name="btn-cadastrar" class="btn">Cadastrar</button>
